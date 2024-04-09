@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman';
+    color: #fff;
+}
+   
+body{
+    height: 100%;
+    width: 100%;
+
+}
+
+#cursor{
+    height: 15px;
+    width:  15px;
+    background: rgba(154, 225, 47, 0.777);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+#cursor-blur{
+     height: 180px;
+     width: 180px;
+     background: rgba(154, 225, 47, 0.577);
+     border-radius: 50%;
+     position: fixed;
+     filter: blur(35px);
+     z-index: 9;
+
+     
+}
+
+#nav{
+    height: 120px;
+    width: 100%;
+    
+
+    display: flex;
+    align-items: center;
+    padding: 0 150px;
+    gap: 45px;
+    justify-content: flex-start;
+    position: fixed; /*to fix position of nav bar in website*/
+    z-index: 99;
+     
+    
+}
+ 
+#nav img{
+    height: 45px;
+    width: 40px;
+}
+#nav h5{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;              /* to fit the video in whole screen*/
+    position: fixed;
+    z-index: -1;
+}
+
+#main{
+     position: relative ;
+     background-color: rgba(0, 0, 0, 0.247);
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align:center ;
+    z-index: 10;
+}
+
+#page1 h1{
+    font-size: 70px;
+    font-weight: 950;
+    position: relative;
+
+}
+#page1 h1::before{                  /*pseudo elements in css before or after*/
+    content:"EAT. DRINK. PLAY." ;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    color: #000;
+    -webkit-text-stroke: 1px rgba(26, 160, 50, 0.563) ;
+    z-index: -1;
+
+}
+
+#page1 h2{
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#page1 p{
+    font-size: 15px;
+    font-weight: 550;
+    width: 471px;
+}
+
+#page2 {
+  min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+
+#scroller{
+    
+    white-space: nowrap;   /*nowrap mean contain all element in one line*/
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+#scroller1{
+    display: inline-block;
+    white-space: nowrap; 
+         animation-name:scroll ;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4{
+            display: inline-block;
+            font-size: 70px;
+            font-weight: 700;
+            font-family:  Arial;
+            margin-right: 10px ;
+            transition: all linear 0.2s;
+            color: transparent;
+           -webkit-text-stroke: 2px rgba(88, 183, 53, 0.778) ; /* use to make outline in text*/
+}
+  #scroller h4:hover{
+    color:rgba(26, 160, 50, 0.563) ;
+  }
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+#about{
+    height: 40vh;
+    width: 100%;
+                 /* background-color: crimson;*/
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    justify-content: space-around;
+}
+
+#about img{
+    height: 150px;
+    width: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+#about-us{
+    width: 50% ;
+    text-align: center;
+}
+
+#about-us h3{
+    font-size: 30px;
+    font-weight: 800;
+    font-family: Arial;
+    margin-bottom: 30px ;
+}
+
+#about-us p{
+    font-size:20px;
+    line-height:26px ;
+}
+
+#card-container{
+  /*  background-color: aqua;*/
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 55px;
+    position: relative;
+    z-index: 10;
+}
+
+.card{
+    height:60%;
+    width: 20%;
+  /*  background-color: crimson;*/
+    border-radius: 15px;
+    background-size: cover; /*because you are using background imagge*/
+    background-position: center;
+    overflow: hidden;
+    transition: all ease 0.4s;
+}
+
+#card1{
+    background-image: url(tab\ girl.jpeg);
+}
+#card2{
+    background-image: url(dinosaur.jpeg);
+
+}
+
+#card3{
+    background-image: url(golf\ another\ later.jpeg);
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(154, 225, 47, 0.777) ;
+    padding: 25px;
+    padding-top: 70px;
+    opacity: 0;
+    transition: all ease 0.4s;
+}
+
+.overlay h4{
+    color: #000;
+    font-size: 23px;
+    font-family: arial;
+    text-transform: uppercase;
+    white-space:nowrap ;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.overlay p{
+    color: #000;
+    font-size:14px ;
+}
+ .card:hover .overlay{
+    opacity: 1;
+ }
+
+ .card:hover{
+
+    transform: rotate3d(-1,1,0,20deg);
+ }
+
+ #greenbox{
+    height: 25vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ /*   background-color: aquamarine;*/
+ background: linear-gradient(to left bottom,#10c44c67,#ACE022);
+
+ }
+
+ #greenbox p{
+    width: 45%;
+    font-size: 21px;
+    text-transform: uppercase;
+    line-height: 30px;
+    text-align: center;
+    color: #000;
+    font-weight: 800;
+ }
+
+ #greenbox img{
+    height: 100%;
+    object-fit: cover; /*this is used when our screen width is less and backgroung video start showing*/
+    width: 60px;
+ }
+ #page3 {
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;/*when you give any img positon absolute than you give their parents pos relative*/
+
+
+ }
+
+ #page3 p{
+    font-size: 27px;
+    font-weight: 600;
+    width: 55%;
+    line-height:40px ;
+    text-align: center;
+ }
+
+ #page3 img{
+    position: absolute;
+    height: 60px;
+ }
+
+ #page3 #double1{
+  left: 17%;
+  top: 24%;
+ }
+
+ #page3 #double2{
+    right: 17%;
+    bottom: 24%;
+ }
